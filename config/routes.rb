@@ -29,7 +29,8 @@ Rails.application.routes.draw do
   get "/kitchen8_sink" => "static#kitchen8_sink"
 
   match '/jessica',      to: 'dashboard#jessica',           via: 'post'
-  match '/jennifer',      to: 'dashboard#jennifer',           via: 'post'
+  match '/jennifer',      to: 'dashboard#jennifer_post',           via: 'post'
+  match '/jennifer',      to: 'dashboard#jennifer',           via: 'get'
   match '/john',      to: 'dashboard#john',           via: 'post'
   match '/james',      to: 'dashboard#james',           via: 'post'
 end

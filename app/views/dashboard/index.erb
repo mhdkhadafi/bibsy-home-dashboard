@@ -11,7 +11,6 @@
         <!-- menu profile quick info -->
         <div class="profile clearfix">
           <div class="profile_pic">
-            <img src="images/img.jpg" alt="..." class="img-circle profile_img">
           </div>
           <div class="profile_info">
             <span>Welcome,</span>
@@ -89,7 +88,7 @@
           <ul class="nav navbar-nav navbar-right">
             <li class="">
               <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                <img src="images/img.jpg" alt="">Qionglu Lei
+                Qionglu Lei
                 <span class=" fa fa-angle-down"></span>
               </a>
               <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -113,7 +112,7 @@
               <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
                 <li>
                   <a>
-                    <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                    <span class="image"></span>
                     <span>
                       <span>Qionglu Lei</span>
                       <span class="time">3 mins ago</span>
@@ -169,9 +168,9 @@
             </div>
             <div class="x_content">
               <div class="col-md-3 col-sm-3 col-xs-6">
-                <%= form_tag({controller: "dashboard", action: "jennifer"}, method: "post") do %>
-                  <%= image_submit_tag("jennifer.png", class: 'btn', style: 'width: 100%') %>
-                <% end %>
+                <div id="jennifer-button">
+                  <%= render partial: "shared/jennifer" %>
+                </div>
                 <h4 class="text-center">Jennifer</h4>
               </div>
               <div class="col-md-3 col-sm-3 col-xs-6">
