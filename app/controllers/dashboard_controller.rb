@@ -44,10 +44,6 @@ class DashboardController < ApplicationController
  	@@jennifer = !@@jennifer
  	@jennifer = @@jennifer
  	puts "jennifer is #{@@jennifer} in post"
- # 	respond_to do |format|
-	#     application.js { render :js => "jennifer();" } 
-	# end
- 	# render partial: "shared/jennifer"
  	render :js => "$('#jennifer-button').load('/jennifer');"
   end
 
