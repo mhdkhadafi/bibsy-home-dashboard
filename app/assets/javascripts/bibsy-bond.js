@@ -17,4 +17,9 @@
 
 // $('#jennifer_button').load('/dashboard_controller/jennifer'); // May need to use whatever locals you need to in here.
 
-$("#jennifer_button").html("<%= escape_javascript(render partial: 'shared/jennifer') %>";
+// $("#jennifer_button").html("<%= escape_javascript(render partial: 'shared/jennifer') %>");
+
+// function jennifer() {
+// 	$('#jennifer_button').load('/jennifer');
+// }
+
