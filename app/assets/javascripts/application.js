@@ -4,3 +4,4 @@
 //= require jquery.vmap.sampledata
 //= require gentelella-custom
 //= require bibsy-bond
+//= require jquery.simpleWeather.min

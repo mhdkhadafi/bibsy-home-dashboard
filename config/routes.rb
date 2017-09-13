@@ -33,4 +33,10 @@ Rails.application.routes.draw do
   match '/jennifer',      to: 'dashboard#jennifer',           via: 'get'
   match '/john',      to: 'dashboard#john',           via: 'post'
   match '/james',      to: 'dashboard#james',           via: 'post'
+  match '/tv',      to: 'dashboard#tv',           via: 'post'
+  match '/tv_volume_up',      to: 'dashboard#tv_volume_up',           via: 'post'
+  match '/tv_volume_down',      to: 'dashboard#tv_volume_down',           via: 'post'
+  match '/nest',      to: 'dashboard#nest',           via: 'post'
+  match '/nest_temp_up',      to: 'dashboard#nest_temp_up',           via: 'post'
+  match '/nest_temp_down',      to: 'dashboard#nest_temp_down',           via: 'post'
 end

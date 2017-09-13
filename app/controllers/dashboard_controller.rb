@@ -109,4 +109,7 @@ class DashboardController < ApplicationController
 	request.body = "{\n\t\"on\": #{next_state}\n}"
 	http.request(request)
   end
+
+  def tv
+  end
 end
