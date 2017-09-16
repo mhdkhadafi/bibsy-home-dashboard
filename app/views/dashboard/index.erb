@@ -161,21 +161,21 @@
                 <h4 class="text-center">Jennifer</h4>
               </div>
               <div class="col-md-6 col-sm-6 col-xs-6">
-                <%= form_tag({controller: "dashboard", action: "john"}, method: "post") do %>
-                  <%= image_submit_tag("john.png", class: 'btn', style: 'width: 100%') %>
-                <% end %>
+                <div id="john-button">
+                  <%= render partial: "shared/john" %>
+                </div>
                 <h4 class="text-center">John</h4>
               </div>
               <div class="col-md-6 col-sm-6 col-xs-6">
-                <%= form_tag({controller: "dashboard", action: "jessica"}, method: "post") do %>
-                  <%= image_submit_tag("jessica.png", class: 'btn', style: 'width: 100%') %>
-                <% end %>
+                <div id="jessica-button">
+                  <%= render partial: "shared/jessica" %>
+                </div>
                 <h4 class="text-center">Jessica</h4>
               </div>
               <div class="col-md-6 col-sm-6 col-xs-6">
-                <%= form_tag({controller: "dashboard", action: "james"}, method: "post") do %>
-                  <%= image_submit_tag("james.png", class: 'btn', style: 'width: 100%') %>
-                <% end %>
+                <div id="james-button">
+                  <%= render partial: "shared/james" %>
+                </div>
                 <h4 class="text-center">James</h4>
               </div>
             </div>

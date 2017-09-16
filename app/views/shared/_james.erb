@@ -1,0 +1,7 @@
+<%= form_tag({controller: "dashboard", action: "james"}, method: "post", :remote => true) do %>
+  <% if @james %>
+    <%= image_submit_tag("james.png", class: 'btn active light-active', style: 'width: 100%') %>
+  <% else %>
+    <%= image_submit_tag("james.png", class: 'btn', style: 'width: 100%') %>
+  <% end %>
+<% end %>
