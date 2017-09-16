@@ -25,37 +25,21 @@ class DashboardController < ApplicationController
 
   def jennifer
   	if request.get?
+  		@@jennifer = get_current_state('jennifer')
   		@jennifer = @@jennifer
 	 	puts "jennifer is #{@@jennifer} in get"
 	 	render partial: "shared/jennifer"
 	elsif request.post?
 		puts "jennifer was #{@@jennifer} in post"
-	 	@@jennifer = !@@jennifer
+	 	@@jennifer = get_current_state('jennifer')
+	 	next_state = state ? 0 : 1
+	 	request.body = "{\"method\":\"passthrough\", \"params\": {\"deviceId\": \"#{ENV['TP_LINK_JENNIFER']}\", \"requestData\": \"{\\\"system\\\":{\\\"set_relay_state\\\":{\\\"state\\\":#{next_state}}}}\" }}"
+  		http.request(request)
+  		@@jennifer = get_current_state('jennifer')
 	 	@jennifer = @@jennifer
 	 	puts "jennifer is #{@@jennifer} in post"
 	 	render :js => "$('#jennifer-button').load('/jennifer');"
 	end
-	 		
-  	url = URI("https://use1-wap.tplinkcloud.com/?token=#{ENV['TP_LINK_TOKEN']}")
-
-	http = Net::HTTP.new(url.host, url.port)
-	http.use_ssl = true
-	http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-
-	request = Net::HTTP::Post.new(url)
-	request["content-type"] = 'application/json'
-	request["cache-control"] = 'no-cache'
-	request.body = "{\"method\":\"passthrough\", \"params\": {\"deviceId\": \"#{ENV['TP_LINK_JENNIFER']}\", \"requestData\": \"{\\\"system\\\":{\\\"get_sysinfo\\\":{}}}\" }}"
-	
-	response = http.request(request)
-	state = JSON.parse(JSON.parse(response.body)["result"]["responseData"])["system"]["get_sysinfo"]["relay_state"]
-
-	# next_state = state == 1 ? 0 : 1
-	# request.body = "{\"method\":\"passthrough\", \"params\": {\"deviceId\": \"#{ENV['TP_LINK_JENNIFER']}\", \"requestData\": \"{\\\"system\\\":{\\\"set_relay_state\\\":{\\\"state\\\":#{next_state}}}}\" }}"
- #  	http.request(request)
- 	# @jennifer = @@jennifer
- 	# puts "jennifer is #{@@jennifer} in get"
- 	# render partial: "shared/jennifer"
   end
 
   def john
