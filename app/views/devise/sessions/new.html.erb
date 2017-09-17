@@ -1,0 +1,22 @@
+<div>
+  <a class="hiddenanchor" id="signup"></a>
+  <a class="hiddenanchor" id="signin"></a>
+
+  <div class="login_wrapper">
+    <div class="animate login_form">
+      <section class="login_content">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <h1>Login</h1>
+          <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Username" %>
+          <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password"  %>
+          <div style="text-align: center; margin-left: 0px">
+            <%= f.submit "Log in", class: "btn btn-default submit", style: "float: none; margin-left: 0px" %>
+          </div>
+        <% end %>
+        <div class="separator"></div>
+        <h1><i class="fa fa-paw"></i> Bibsy Bond!</h1>
+
+      </section>
+    </div>
+  </div>
+</div>

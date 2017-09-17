@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '~> 5.1.2'
-gem 'sqlite3'
+gem 'pg'
 gem 'puma', '~> 3.7'
 
 gem 'sass-rails', '~> 5.0'
@@ -12,6 +12,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'gentelella-rails'
 gem 'modernizr-rails'
+
+gem 'devise'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

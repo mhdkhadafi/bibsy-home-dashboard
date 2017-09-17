@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "dashboard#index"
   get "/index.html" => "dashboard#index"
@@ -28,14 +29,14 @@ Rails.application.routes.draw do
   get "/kitchen_sink" => "static#kitchen_sink"
   get "/kitchen8_sink" => "static#kitchen8_sink"
 
-  match '/jessica',      to: 'dashboard#jessica',           via: 'post'
+  match '/jessica',      to: 'dashboard#jessica',           via: [:get, :post]
   match '/jennifer',      to: 'dashboard#jennifer',           via: [:get, :post]
-  match '/john',      to: 'dashboard#john',           via: 'post'
-  match '/james',      to: 'dashboard#james',           via: 'post'
+  match '/john',      to: 'dashboard#john',           via: [:get, :post]
+  match '/james',      to: 'dashboard#james',           via: [:get, :post]
   match '/tv',      to: 'dashboard#tv',           via: 'post'
   match '/tv_volume_up',      to: 'dashboard#tv_volume_up',           via: 'post'
   match '/tv_volume_down',      to: 'dashboard#tv_volume_down',           via: 'post'
-  match '/nest',      to: 'dashboard#nest',           via: 'post'
+  match '/nest',      to: 'dashboard#nest',           via: 'get'
   match '/nest_temp_up',      to: 'dashboard#nest_temp_up',           via: 'post'
   match '/nest_temp_down',      to: 'dashboard#nest_temp_down',           via: 'post'
 end

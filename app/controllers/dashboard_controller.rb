@@ -3,6 +3,8 @@ require 'net/http'
 
 class DashboardController < ApplicationController
 	@@jennifer = @@john = @@jessica = @@james = true
+	@@current_temp = 23
+	before_action :authenticate_user!
 
   def kitchen_sink
     render :kitchen_sink, layout: "kitchen"
@@ -14,12 +16,14 @@ class DashboardController < ApplicationController
   def index
   	@@jennifer = get_current_state('jennifer')
   	@@john = get_current_state('john')
-  	# @@james = get_current_state('james')
-  	# @@jessica = get_current_state('jessica')
+  	@@james = get_current_state('james')
+  	@@jessica = get_current_state('jessica')
+  	@@current_temp = get_current_temperature
   	@jennifer = @@jennifer
   	@john = @@john
   	@james = @@james
   	@jessica = @@jessica
+  	@current_temp = @@current_temp
   	render 
   end
 
@@ -27,88 +31,203 @@ class DashboardController < ApplicationController
   	if request.get?
   		@@jennifer = get_current_state('jennifer')
   		@jennifer = @@jennifer
-	 	puts "jennifer is #{@@jennifer} in get"
 	 	render partial: "shared/jennifer"
 	elsif request.post?
-		puts "jennifer was #{@@jennifer} in post"
 	 	@@jennifer = get_current_state('jennifer')
-	 	next_state = state ? 0 : 1
+	 	next_state = @@jennifer ? 0 : 1
+	 	url = URI("https://use1-wap.tplinkcloud.com/?token=#{ENV['TP_LINK_TOKEN']}")
+
+		http = Net::HTTP.new(url.host, url.port)
+		http.use_ssl = true
+		http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+		request = Net::HTTP::Post.new(url)
+		request["content-type"] = 'application/json'
+		request["cache-control"] = 'no-cache'
 	 	request.body = "{\"method\":\"passthrough\", \"params\": {\"deviceId\": \"#{ENV['TP_LINK_JENNIFER']}\", \"requestData\": \"{\\\"system\\\":{\\\"set_relay_state\\\":{\\\"state\\\":#{next_state}}}}\" }}"
   		http.request(request)
-  		@@jennifer = get_current_state('jennifer')
-	 	@jennifer = @@jennifer
-	 	puts "jennifer is #{@@jennifer} in post"
+
 	 	render :js => "$('#jennifer-button').load('/jennifer');"
 	end
   end
 
   def john
- #  	url = URI("https://use1-wap.tplinkcloud.com/?token=#{ENV['TP_LINK_TOKEN']}")
+  	if request.get?
+  		@@john = get_current_state('john')
+  		@john = @@john
+	 	render partial: "shared/john"
+	elsif request.post?
+	 	@@john = get_current_state('john')
+	 	next_state = @@john ? 0 : 1
+	 	url = URI("https://use1-wap.tplinkcloud.com/?token=#{ENV['TP_LINK_TOKEN']}")
 
-	# http = Net::HTTP.new(url.host, url.port)
-	# http.use_ssl = true
-	# http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+		http = Net::HTTP.new(url.host, url.port)
+		http.use_ssl = true
+		http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
-	# request = Net::HTTP::Post.new(url)
-	# request["content-type"] = 'application/json'
-	# request["cache-control"] = 'no-cache'
-	# request.body = "{\"method\":\"passthrough\", \"params\": {\"deviceId\": \"#{ENV['TP_LINK_JOHN']}\", \"requestData\": \"{\\\"system\\\":{\\\"get_sysinfo\\\":{}}}\" }}"
-	
-	# response = http.request(request)
-	# state = JSON.parse(JSON.parse(response.body)["result"]["responseData"])["system"]["get_sysinfo"]["relay_state"]
+		request = Net::HTTP::Post.new(url)
+		request["content-type"] = 'application/json'
+		request["cache-control"] = 'no-cache'
+	 	request.body = "{\"method\":\"passthrough\", \"params\": {\"deviceId\": \"#{ENV['TP_LINK_JOHN']}\", \"requestData\": \"{\\\"system\\\":{\\\"set_relay_state\\\":{\\\"state\\\":#{next_state}}}}\" }}"
+  		http.request(request)
 
-	# next_state = state == 1 ? 0 : 1
-	# request.body = "{\"method\":\"passthrough\", \"params\": {\"deviceId\": \"#{ENV['TP_LINK_JOHN']}\", \"requestData\": \"{\\\"system\\\":{\\\"set_relay_state\\\":{\\\"state\\\":#{next_state}}}}\" }}"
- #  	http.request(request)
- 	@john = !@john
+	 	render :js => "$('#john-button').load('/john');"
+	end
   end
 
   def james
-	url = URI("http://192.168.1.165/api/#{ENV['HUE_TOKEN']}/lights/3")
+  	if request.get?
+  		@@james = get_current_state('james')
+  		@james = @@james
+	 	render partial: "shared/james"
+	elsif request.post?
+	 	@@james = get_current_state('james')
+	 	next_state = !@@james
+	 	url = URI("http://192.168.1.165/api/#{ENV['HUE_TOKEN']}/lights/3/state")
 
-	http = Net::HTTP.new(url.host, url.port)
+		http = Net::HTTP.new(url.host, url.port)
 
-	request = Net::HTTP::Get.new(url)
-	request["cache-control"] = 'no-cache'
+		request = Net::HTTP::Put.new(url)
+		request["content-type"] = 'application/json'
+		request["cache-control"] = 'no-cache'
+		request.body = "{\n\t\"on\": #{next_state}\n}"
+	  	http.request(request)
 
-	response = http.request(request)
-	state = JSON.parse(response.body)["state"]["on"]
-
-	next_state = !state
-
-	url = URI("http://192.168.1.165/api/#{ENV['HUE_TOKEN']}/lights/3/state")
-	request = Net::HTTP::Put.new(url)
-	request["content-type"] = 'application/json'
-	request["cache-control"] = 'no-cache'
-	request.body = "{\n\t\"on\": #{next_state}\n}"
-	http.request(request)
+	 	render :js => "$('#james-button').load('/james');"
+	end
   end
 
   def jessica
-  	url = URI("http://192.168.1.165/api/#{ENV['HUE_TOKEN']}/lights/1")
+  	if request.get?
+  		@@jessica = get_current_state('jessica')
+  		@jessica = @@jessica
+	 	render partial: "shared/jessica"
+	elsif request.post?
+	 	@@jessica = get_current_state('jessica')
+	 	next_state = !@@jessica
+	 	url = URI("http://192.168.1.165/api/#{ENV['HUE_TOKEN']}/lights/1/state")
 
-	http = Net::HTTP.new(url.host, url.port)
+		http = Net::HTTP.new(url.host, url.port)
 
-	request = Net::HTTP::Get.new(url)
-	request["cache-control"] = 'no-cache'
+		request = Net::HTTP::Put.new(url)
+		request["content-type"] = 'application/json'
+		request["cache-control"] = 'no-cache'
+		request.body = "{\n\t\"on\": #{next_state}\n}"
+	  	http.request(request)
 
-	response = http.request(request)
-	state = JSON.parse(response.body)["state"]["on"]
-
-	next_state = !state
-
-	url = URI("http://192.168.1.165/api/#{ENV['HUE_TOKEN']}/lights/1/state")
-	request = Net::HTTP::Put.new(url)
-	request["content-type"] = 'application/json'
-	request["cache-control"] = 'no-cache'
-	request.body = "{\n\t\"on\": #{next_state}\n}"
-	http.request(request)
+	 	render :js => "$('#jessica-button').load('/jessica');"
+	end
   end
 
-  def tv
+  def nest
+  	# @@current_temp = get_current_temperature 
+  	@current_temp = @@current_temp
+  	render partial: "shared/nest"
+  end
+
+  def nest_temp_up
+  	current_temp = get_current_temperature
+  	target_temp = current_temp + 0.5
+  	set_target_temperature(target_temp)
+  	@@current_temp = target_temp
+  	render :js => "$('#nest').load('/nest');"
+  end
+
+  def nest_temp_down
+  	current_temp = get_current_temperature
+  	target_temp = current_temp - 0.5
+  	set_target_temperature(target_temp)
+  	@@current_temp = target_temp
+  	render :js => "$('#nest').load('/nest');"
+  end
+
+  def tv_volume_up
+  	url = URI("https://192.168.1.164:9000/key_command/")
+
+	http = Net::HTTP.new(url.host, url.port)
+	http.use_ssl = true
+	http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+	request = Net::HTTP::Put.new(url)
+	request["content-type"] = 'application/json'
+	request["auth"] = '123A456B'
+	request.body = "{\"KEYLIST\": [{\"CODESET\": 5,\"CODE\": 1,\"ACTION\":\"KEYPRESS\"}]}"
+
+	response = http.request(request)
+  end
+
+  def tv_volume_down
+  	url = URI("https://192.168.1.164:9000/key_command/")
+
+	http = Net::HTTP.new(url.host, url.port)
+	http.use_ssl = true
+	http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+	request = Net::HTTP::Put.new(url)
+	request["content-type"] = 'application/json'
+	request["auth"] = '123A456B'
+	request.body = "{\"KEYLIST\": [{\"CODESET\": 5,\"CODE\": 0,\"ACTION\":\"KEYPRESS\"}]}"
+
+	response = http.request(request)
+  end
+
+  def sign_out
   end
 
   private
+  def get_current_temperature
+	url = URI("https://developer-api.nest.com/devices/thermostats/#{ENV['NEST_THERMOSTAT_ID']}")
+
+	http = Net::HTTP.new(url.host, url.port)
+	http.use_ssl = true
+	http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+	request = Net::HTTP::Get.new(url)
+	request["content-type"] = 'application/json'
+	request["authorization"] = "Bearer #{ENV['NEST_TOKEN']}"
+
+	response = http.request(request)
+
+	redirect_url = URI(response['location'])
+
+	http = Net::HTTP.new(redirect_url.host, redirect_url.port)
+	http.use_ssl = true
+	http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+	request = Net::HTTP::Get.new(redirect_url)
+	request["content-type"] = 'application/json'
+	request["authorization"] = "Bearer #{ENV['NEST_TOKEN']}"
+
+	response = http.request(request)
+
+	return JSON.parse(response.body)['target_temperature_c']
+  end
+
+  def set_target_temperature(target)
+  	url = URI("https://developer-api.nest.com/devices/thermostats/#{ENV['NEST_THERMOSTAT_ID']}")
+
+  	http = Net::HTTP.new(url.host, url.port)
+	http.use_ssl = true
+	http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+	request = Net::HTTP::Put.new(url)
+	request["content-type"] = 'application/json'
+	request["authorization"] = "Bearer #{ENV['NEST_TOKEN']}"
+	request.body = "{\"target_temperature_c\": #{target}}"	
+	response = http.request(request)
+	redirect_url = URI(response['location'])
+
+	http = Net::HTTP.new(redirect_url.host, redirect_url.port)
+	http.use_ssl = true
+	http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+	request = Net::HTTP::Put.new(url)
+	request["content-type"] = 'application/json'
+	request["authorization"] = "Bearer #{ENV['NEST_TOKEN']}"
+	request.body = "{\"target_temperature_c\": #{target}}"
+
+	response = http.request(request)
+  end
 
   def get_current_state(device)
   	if ["jennifer", "john"].include? device

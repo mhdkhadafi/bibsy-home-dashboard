@@ -1,3 +1,24 @@
+.t_20 { background-image: url('nest.png'), url('temperatures/temp_20.png'); }
+.t_20_5 { background-image: url('nest.png'), url('temperatures/temp_20_5.png'); }
+.t_21 { background-image: url('nest.png'), url('temperatures/temp_21.png'); }
+.t_21_5 { background-image: url('nest.png'), url('temperatures/temp_21_5.png'); }
+.t_22 { background-image: url('nest.png'), url('temperatures/temp_22.png'); }
+.t_22_5 { background-image: url('nest.png'), url('temperatures/temp_22_5.png'); }
+.t_23 { background-image: url('nest.png'), url('temperatures/temp_23.png'); }
+.t_23_5 { background-image: url('nest.png'), url('temperatures/temp_23_5.png'); }
+.t_24 { background-image: url('nest.png'), url('temperatures/temp_24.png'); }
+.t_24_5 { background-image: url('nest.png'), url('temperatures/temp_24_5.png'); }
+.t_25 { background-image: url('nest.png'), url('temperatures/temp_25.png'); }
+.t_25_5 { background-image: url('nest.png'), url('temperatures/temp_25_5.png'); }
+.t_26 { background-image: url('nest.png'), url('temperatures/temp_26.png'); }
+.t_empty { background-image: url('nest.png'); }
+
+.nest {
+  width: 100%;
+  background-size: 100%;
+  padding-top: 100%;
+}
+
 .btn-xlarge {
 	width:100%;
 	padding-top:75%;
