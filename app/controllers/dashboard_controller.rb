@@ -161,6 +161,13 @@ class DashboardController < ApplicationController
 	response = http.request(request)
   end
 
+  def tv
+  	url = URI("http://100.38.248.162:3000/power")
+  	http = Net::HTTP.new(url.host, url.port)
+  	request = Net::HTTP::Get.new(url)
+  	response = http.request(request)
+  end
+
   def sign_out
   end
 
