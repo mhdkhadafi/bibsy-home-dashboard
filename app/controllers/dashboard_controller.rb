@@ -14,17 +14,17 @@ class DashboardController < ApplicationController
   end
 
   def index
-  	@@jennifer = get_current_state('jennifer')
-  	@@john = get_current_state('john')
-  	@@james = get_current_state('james')
-  	@@jessica = get_current_state('jessica')
-  	@@current_temp = get_current_temperature
-  	@jennifer = @@jennifer
-  	@john = @@john
-  	@james = @@james
-  	@jessica = @@jessica
-  	@current_temp = @@current_temp
-  	render plain: "haha"
+  	# @@jennifer = get_current_state('jennifer')
+  	# @@john = get_current_state('john')
+  	# @@james = get_current_state('james')
+  	# @@jessica = get_current_state('jessica')
+  	# @@current_temp = get_current_temperature
+  	# @jennifer = @@jennifer
+  	# @john = @@john
+  	# @james = @@james
+  	# @jessica = @@jessica
+  	# @current_temp = @@current_temp
+  	render 
   end
 
   def jennifer
