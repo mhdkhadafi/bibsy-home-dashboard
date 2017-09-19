@@ -4,7 +4,7 @@ require 'net/http'
 class DashboardController < ApplicationController
 	@@jennifer = @@john = @@jessica = @@james = true
 	@@current_temp = 23
-	# before_action :authenticate_user!
+	before_action :authenticate_user!
 
   def kitchen_sink
     render :kitchen_sink, layout: "kitchen"
@@ -14,16 +14,6 @@ class DashboardController < ApplicationController
   end
 
   def index
-  	# @@jennifer = get_current_state('jennifer')
-  	# @@john = get_current_state('john')
-  	# @@james = get_current_state('james')
-  	# @@jessica = get_current_state('jessica')
-  	# @@current_temp = get_current_temperature
-  	# @jennifer = @@jennifer
-  	# @john = @@john
-  	# @james = @@james
-  	# @jessica = @@jessica
-  	# @current_temp = @@current_temp
   	render
   end
 
