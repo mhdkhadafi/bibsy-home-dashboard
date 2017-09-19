@@ -24,7 +24,7 @@ class DashboardController < ApplicationController
   	# @james = @@james
   	# @jessica = @@jessica
   	# @current_temp = @@current_temp
-  	render plain: "haha"
+  	render
   end
 
   def jennifer
