@@ -155,27 +155,19 @@
             </div>
             <div class="x_content">
               <div class="col-md-6 col-sm-6 col-xs-6">
-                <div id="jennifer-button">
-                  <%= render partial: "shared/jennifer" %>
-                </div>
+                <div id="jennifer-button"></div>
                 <h4 class="text-center">Jennifer</h4>
               </div>
               <div class="col-md-6 col-sm-6 col-xs-6">
-                <div id="john-button">
-                  <%= render partial: "shared/john" %>
-                </div>
+                <div id="john-button"></div>
                 <h4 class="text-center">John</h4>
               </div>
               <div class="col-md-6 col-sm-6 col-xs-6">
-                <div id="jessica-button">
-                  <%= render partial: "shared/jessica" %>
-                </div>
+                <div id="jessica-button"></div>
                 <h4 class="text-center">Jessica</h4>
               </div>
               <div class="col-md-6 col-sm-6 col-xs-6">
-                <div id="james-button">
-                  <%= render partial: "shared/james" %>
-                </div>
+                <div id="james-button"></div>
                 <h4 class="text-center">James</h4>
               </div>
             </div>
@@ -219,9 +211,7 @@
             </div>
             <div class="x_content">
               <div class="col-md-12 col-sm-12 col-xs-12" style="width:100%">
-                <div id="nest" >
-                  <%= render partial: "shared/nest" %>
-                </div>
+                <div id="nest" ></div>
               </div>
               <div class="col-md-12 col-sm-12 col-xs-12" style="width:100%">
                 <div class="col-md-6 col-sm-6 col-xs-6">
@@ -253,3 +243,14 @@
     <!-- /footer content -->
   </div>
 </div>
+
+<%= javascript_include_tag 'jquery' %>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("#jennifer-button").append("<%= escape_javascript(render(:partial => 'shared/jennifer')) %>");
+    $("#jessica-button").append("<%= escape_javascript(render(:partial => 'shared/jessica')) %>");
+    $("#james-button").append("<%= escape_javascript(render(:partial => 'shared/james')) %>");
+    $("#john-button").append("<%= escape_javascript(render(:partial => 'shared/john')) %>");
+    $("#nest").append("<%= escape_javascript(render(:partial => 'shared/nest')) %>");
+  });
+</script>
