@@ -1,0 +1,355 @@
+/* line 1, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.t_20 {
+  background-image: url("nest.png"), url("temperatures/temp_20.png");
+}
+
+/* line 2, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.t_20_5 {
+  background-image: url("nest.png"), url("temperatures/temp_20_5.png");
+}
+
+/* line 3, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.t_21 {
+  background-image: url("nest.png"), url("temperatures/temp_21.png");
+}
+
+/* line 4, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.t_21_5 {
+  background-image: url("nest.png"), url("temperatures/temp_21_5.png");
+}
+
+/* line 5, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.t_22 {
+  background-image: url("nest.png"), url("temperatures/temp_22.png");
+}
+
+/* line 6, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.t_22_5 {
+  background-image: url("nest.png"), url("temperatures/temp_22_5.png");
+}
+
+/* line 7, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.t_23 {
+  background-image: url("nest.png"), url("temperatures/temp_23.png");
+}
+
+/* line 8, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.t_23_5 {
+  background-image: url("nest.png"), url("temperatures/temp_23_5.png");
+}
+
+/* line 9, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.t_24 {
+  background-image: url("nest.png"), url("temperatures/temp_24.png");
+}
+
+/* line 10, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.t_24_5 {
+  background-image: url("nest.png"), url("temperatures/temp_24_5.png");
+}
+
+/* line 11, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.t_25 {
+  background-image: url("nest.png"), url("temperatures/temp_25.png");
+}
+
+/* line 12, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.t_25_5 {
+  background-image: url("nest.png"), url("temperatures/temp_25_5.png");
+}
+
+/* line 13, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.t_26 {
+  background-image: url("nest.png"), url("temperatures/temp_26.png");
+}
+
+/* line 14, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.t_empty {
+  background-image: url("nest.png");
+}
+
+/* line 16, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.nest {
+  width: 100%;
+  background-size: 100%;
+  padding-top: 100%;
+}
+
+/* line 22, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.btn-xlarge {
+  width: 100%;
+  padding-top: 75%;
+  font-size: 22px;
+  background: url("james.png");
+  line-height: normal;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+}
+
+/* line 33, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.light-active {
+  border-color: #fff8e0;
+  border-width: 4px;
+}
+
+@font-face {
+  font-family: 'weather';
+  src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/artill_clean_icons-webfont.eot");
+  src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/artill_clean_icons-webfont.eot?#iefix") format("embedded-opentype"), url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/artill_clean_icons-webfont.woff") format("woff"), url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/artill_clean_icons-webfont.ttf") format("truetype"), url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/artill_clean_icons-webfont.svg#artill_clean_weather_iconsRg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+/* line 51, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+#weather {
+  text-align: right;
+}
+
+/* line 55, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.weather-icon {
+  font-family: weather;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1.0;
+  text-transform: none;
+}
+
+/* line 63, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.icon-0:before {
+  content: ":";
+}
+
+/* line 64, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.icon-1:before {
+  content: "p";
+}
+
+/* line 65, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.icon-2:before {
+  content: "S";
+}
+
+/* line 66, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.icon-3:before {
+  content: "Q";
+}
+
+/* line 67, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.icon-4:before {
+  content: "S";
+}
+
+/* line 68, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.icon-5:before {
+  content: "W";
+}
+
+/* line 69, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.icon-6:before {
+  content: "W";
+}
+
+/* line 70, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.icon-7:before {
+  content: "W";
+}
+
+/* line 71, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.icon-8:before {
+  content: "W";
+}
+
+/* line 72, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.icon-9:before {
+  content: "I";
+}
+
+/* line 73, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.icon-10:before {
+  content: "W";
+}
+
+/* line 74, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.icon-11:before {
+  content: "I";
+}
+
+/* line 75, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.icon-12:before {
+  content: "I";
+}
+
+/* line 76, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.icon-13:before {
+  content: "I";
+}
+
+/* line 77, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.icon-14:before {
+  content: "I";
+}
+
+/* line 78, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.icon-15:before {
+  content: "W";
+}
+
+/* line 79, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.icon-16:before {
+  content: "I";
+}
+
+/* line 80, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.icon-17:before {
+  content: "W";
+}
+
+/* line 81, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.icon-18:before {
+  content: "U";
+}
+
+/* line 82, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.icon-19:before {
+  content: "Z";
+}
+
+/* line 83, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.icon-20:before {
+  content: "Z";
+}
+
+/* line 84, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.icon-21:before {
+  content: "Z";
+}
+
+/* line 85, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.icon-22:before {
+  content: "Z";
+}
+
+/* line 86, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.icon-23:before {
+  content: "Z";
+}
+
+/* line 87, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.icon-24:before {
+  content: "E";
+}
+
+/* line 88, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.icon-25:before {
+  content: "E";
+}
+
+/* line 89, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.icon-26:before {
+  content: "3";
+}
+
+/* line 90, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.icon-27:before {
+  content: "a";
+}
+
+/* line 91, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.icon-28:before {
+  content: "A";
+}
+
+/* line 92, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.icon-29:before {
+  content: "a";
+}
+
+/* line 93, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.icon-30:before {
+  content: "A";
+}
+
+/* line 94, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.icon-31:before {
+  content: "6";
+}
+
+/* line 95, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.icon-32:before {
+  content: "1";
+}
+
+/* line 96, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.icon-33:before {
+  content: "6";
+}
+
+/* line 97, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.icon-34:before {
+  content: "1";
+}
+
+/* line 98, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.icon-35:before {
+  content: "W";
+}
+
+/* line 99, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.icon-36:before {
+  content: "1";
+}
+
+/* line 100, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.icon-37:before {
+  content: "S";
+}
+
+/* line 101, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.icon-38:before {
+  content: "S";
+}
+
+/* line 102, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.icon-39:before {
+  content: "S";
+}
+
+/* line 103, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.icon-40:before {
+  content: "M";
+}
+
+/* line 104, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.icon-41:before {
+  content: "W";
+}
+
+/* line 105, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.icon-42:before {
+  content: "I";
+}
+
+/* line 106, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.icon-43:before {
+  content: "W";
+}
+
+/* line 107, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.icon-44:before {
+  content: "a";
+}
+
+/* line 108, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.icon-45:before {
+  content: "S";
+}
+
+/* line 109, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.icon-46:before {
+  content: "U";
+}
+
+/* line 110, /Users/muhammadkhadafi/Documents/Bibsy-Home/Dashboard/app/assets/stylesheets/bibsy-bond.scss */
+.icon-47:before {
+  content: "S";
+}
