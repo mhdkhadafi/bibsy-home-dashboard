@@ -243,3 +243,14 @@
     <!-- /footer content -->
   </div>
 </div>
+
+<%= javascript_include_tag 'jquery' %>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("#jennifer-button").append("<%= escape_javascript(render(:partial => 'shared/jennifer')) %>").load('/jennifer');
+    $("#jessica-button").append("<%= escape_javascript(render(:partial => 'shared/jessica')) %>").load('/jessica');
+    $("#james-button").append("<%= escape_javascript(render(:partial => 'shared/james')) %>").load('/james');
+    $("#john-button").append("<%= escape_javascript(render(:partial => 'shared/john')) %>").load('/john');
+    $("#nest").append("<%= escape_javascript(render(:partial => 'shared/nest')) %>").load('/nest');
+  });
+</script>
