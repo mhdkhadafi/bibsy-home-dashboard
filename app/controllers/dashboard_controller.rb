@@ -134,31 +134,25 @@ class DashboardController < ApplicationController
   end
 
   def tv_volume_up
-  	url = URI("https://192.168.1.164:9000/key_command/")
+  	url = URI("http://#{ENV['HOME_IP']}:#{ENV['HOME_PORT']}/soundbar")
 
-	http = Net::HTTP.new(url.host, url.port)
-	http.use_ssl = true
-	http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+  	http = Net::HTTP.new(url.host, url.port)
 
 	request = Net::HTTP::Put.new(url)
 	request["content-type"] = 'application/json'
-	request["auth"] = '123A456B'
-	request.body = "{\"KEYLIST\": [{\"CODESET\": 5,\"CODE\": 1,\"ACTION\":\"KEYPRESS\"}]}"
+	request.body = "{\"volume_next\": \"up\"}"
 
 	response = http.request(request)
   end
 
   def tv_volume_down
-  	url = URI("https://192.168.1.164:9000/key_command/")
+  	url = URI("http://#{ENV['HOME_IP']}:#{ENV['HOME_PORT']}/soundbar")
 
-	http = Net::HTTP.new(url.host, url.port)
-	http.use_ssl = true
-	http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+  	http = Net::HTTP.new(url.host, url.port)
 
 	request = Net::HTTP::Put.new(url)
 	request["content-type"] = 'application/json'
-	request["auth"] = '123A456B'
-	request.body = "{\"KEYLIST\": [{\"CODESET\": 5,\"CODE\": 0,\"ACTION\":\"KEYPRESS\"}]}"
+	request.body = "{\"volume_next\": \"down\"}"
 
 	response = http.request(request)
   end
