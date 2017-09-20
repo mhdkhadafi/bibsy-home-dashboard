@@ -3,7 +3,7 @@ require 'net/http'
 
 class DashboardController < ApplicationController
 	@@jennifer = @@john = @@jessica = @@james = true
-	@@current_temp = 23
+	@@current_temp
 	before_action :authenticate_user!
 
   def kitchen_sink
@@ -73,15 +73,16 @@ class DashboardController < ApplicationController
 	elsif request.post?
 	 	@@james = get_current_state('james')
 	 	next_state = !@@james
-	 	url = URI("http://192.168.1.165/api/#{ENV['HUE_TOKEN']}/lights/3/state")
+
+	 	url = URI("http://#{ENV['HOME_IP']}:#{ENV['HOME_PORT']}/james")
 
 		http = Net::HTTP.new(url.host, url.port)
 
 		request = Net::HTTP::Put.new(url)
 		request["content-type"] = 'application/json'
-		request["cache-control"] = 'no-cache'
-		request.body = "{\n\t\"on\": #{next_state}\n}"
-	  	http.request(request)
+		request.body = "{\"state\": #{next_state}}"
+
+		response = http.request(request)
 
 	 	render :js => "$('#james-button').load('/james');"
 	end
@@ -95,22 +96,23 @@ class DashboardController < ApplicationController
 	elsif request.post?
 	 	@@jessica = get_current_state('jessica')
 	 	next_state = !@@jessica
-	 	url = URI("http://192.168.1.165/api/#{ENV['HUE_TOKEN']}/lights/1/state")
+
+	 	url = URI("http://#{ENV['HOME_IP']}:#{ENV['HOME_PORT']}/jessica")
 
 		http = Net::HTTP.new(url.host, url.port)
 
 		request = Net::HTTP::Put.new(url)
 		request["content-type"] = 'application/json'
-		request["cache-control"] = 'no-cache'
-		request.body = "{\n\t\"on\": #{next_state}\n}"
-	  	http.request(request)
+		request.body = "{\"state\": #{next_state}}"
+
+		response = http.request(request)
 
 	 	render :js => "$('#jessica-button').load('/jessica');"
 	end
   end
 
   def nest
-  	# @@current_temp = get_current_temperature 
+  	@@current_temp = get_current_temperature 
   	@current_temp = @@current_temp
   	render partial: "shared/nest"
   end
@@ -243,16 +245,13 @@ class DashboardController < ApplicationController
 		response = http.request(request)
 		state = !JSON.parse(JSON.parse(response.body)["result"]["responseData"])["system"]["get_sysinfo"]["relay_state"].zero?
 	else
-		light_number = device == 'jessica' ? 1 : 3
-		url = URI("http://192.168.1.165/api/#{ENV['HUE_TOKEN']}/lights/#{light_number}")
+		url = URI("http://#{ENV['HOME_IP']}:#{ENV['HOME_PORT']}/#{device}")
 
 		http = Net::HTTP.new(url.host, url.port)
-
 		request = Net::HTTP::Get.new(url)
-		request["cache-control"] = 'no-cache'
 
 		response = http.request(request)
-		state = JSON.parse(response.body)["state"]["on"]
+		state = JSON.parse(response.body)['state']
 	end
 
 	return state
